@@ -382,7 +382,7 @@
      <x>0</x>
      <y>0</y>
      <width>439</width>
-     <height>25</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>
@@ -547,4 +547,3 @@
   <slot>flippy_change()</slot>
  </slots>
 </ui>
-

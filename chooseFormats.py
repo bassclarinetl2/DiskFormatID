@@ -1,4 +1,4 @@
-from PyQt4 import QtGui
+from PyQt5 import QtCore, QtGui, QtWidgets
 import sys
 import os
 import json
@@ -34,30 +34,30 @@ outputTrackOrdersRv = {'-oo1': 'Side 0 descending', '-oo8': 'Side oriented', '-o
 global spath
 spath = os.getenv("HOME") + '/.diskFormatID/settings.json'
 
-class addTypes(QtGui.QMainWindow, chooseFormatsGUI.Ui_addTypes):
+class addTypes(QtWidgets.QMainWindow, chooseFormatsGUI.Ui_addTypes):
   def __init__(self, parent=None):
     global spath
     super(addTypes, self).__init__(parent)
     self.setupUi(self)
     self.imageTypeCB.clear()
 # populate the combo box with the keys in the image variables defined above
-    self.imageTypeCB.addItems(imageTypes.keys())
+    self.imageTypeCB.addItems(list(imageTypes.keys()))
 #set the default value actual defaults
 #set most of the combo boxes to not editable/greyed out by default (that will be changed if the check box is unchecked
     self.imageTypeCB.setCurrentIndex(self.imageTypeCB.findText('MFM'))
-    self.trackDistanceCB.addItems(trackDistances.keys())
+    self.trackDistanceCB.addItems(list(trackDistances.keys())
     self.trackDistanceCB.setCurrentIndex(self.trackDistanceCB.findText('40'))
 
     self.trackDistanceCB.setEnabled(False)
 
-    self.sectorCountCB.addItems(sectorCounts.keys())
+    self.sectorCountCB.addItems(list(sectorCounts.keys()))
     self.sectorCountCB.setEnabled(False)
 
-    self.sideModeCB.addItems(sideModes.keys())
+    self.sideModeCB.addItems(list(sideModes.keys()))
     self.sideModeCB.setCurrentIndex(self.sideModeCB.findText('Both sides'))
     self.sideModeCB.setEnabled(False)
 
-    self.sectorSizeCB.addItems(sectorSizes.keys())
+    self.sectorSizeCB.addItems(list(sectorSizes.keys()))
     self.sectorSizeCB.setCurrentIndex(self.sectorSizeCB.findText('512'))
     self.sectorSizeCB.setEnabled(False)
     
@@ -65,7 +65,7 @@ class addTypes(QtGui.QMainWindow, chooseFormatsGUI.Ui_addTypes):
     self.endTrack.setEnabled(False)
     self.sectorCount.setEnabled(False)
 
-    self.targetRPMCB.addItems(targetRPMsBasic.keys())
+    self.targetRPMCB.addItems(list(targetRPMsBasic.keys()))
     self.targetRPMCB.setEnabled(False)
 
 
