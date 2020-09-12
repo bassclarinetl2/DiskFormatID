@@ -45,13 +45,15 @@ class addTypes(QtWidgets.QMainWindow, chooseFormatsGUI.Ui_addTypes):
 #set the default value actual defaults
 #set most of the combo boxes to not editable/greyed out by default (that will be changed if the check box is unchecked
     self.imageTypeCB.setCurrentIndex(self.imageTypeCB.findText('MFM'))
-    self.trackDistanceCB.addItems(list(trackDistances.keys())
+    self.trackDistanceCB.addItems(list(trackDistances.keys()))
     self.trackDistanceCB.setCurrentIndex(self.trackDistanceCB.findText('40'))
 
     self.trackDistanceCB.setEnabled(False)
 
     self.sectorCountCB.addItems(list(sectorCounts.keys()))
     self.sectorCountCB.setEnabled(False)
+
+    self.trackDistanceCB.setCurrentIndex(self.trackDistanceCB.findText('40'))
 
     self.sideModeCB.addItems(list(sideModes.keys()))
     self.sideModeCB.setCurrentIndex(self.sideModeCB.findText('Both sides'))
